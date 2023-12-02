@@ -59,3 +59,9 @@ def add_cupcake():
     serialized = serialize_cupcake(new_cupcake)
 
     return (jsonify(cupcake=serialized), 201)
+
+
+@app.route('/api/cupcakes/<int:cupcake_id>', methods=["PATCH"])
+def edit_cupcake():
+
+    cupcake_id = Cupcake.query.get(cupcake_id)

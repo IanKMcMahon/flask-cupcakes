@@ -1,6 +1,6 @@
 """Flask app for Cupcakes"""
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from models import db, connect_db, Cupcake
 
 app = Flask(__name__)
@@ -22,6 +22,13 @@ def serialize_cupcake(cupcake):
         "rating": cupcake.rating,
         "img_url": cupcake.img_url
     }
+
+
+@app.route('/')
+def cupcake_index():
+    """Render Homepage"""
+
+    return render_template('index.html')
 
 
 @app.route('/api/cupcakes')

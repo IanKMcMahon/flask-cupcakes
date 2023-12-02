@@ -74,3 +74,8 @@ def edit_cupcake(cupcake_id):
     cupcake.img_url = data['img_url']
 
     cupcake_id = Cupcake.query.get(cupcake_id)
+
+    db.session.add(cupcake)
+    db.session.commit()
+
+    return jsonify(cupcake=cupcake.to_dict())

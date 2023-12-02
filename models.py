@@ -32,7 +32,7 @@ size = db.Column(
 rating = db.Column(
     db.Float,
     nullable=False)
-image_url = db.Column(
+img_url = db.Column(
     db.Text,
     nullable=False,
     default=DEFAULT_IMG_URL

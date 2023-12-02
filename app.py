@@ -30,12 +30,31 @@ def show_all_cupcakes():
     serialized = [serialize_cupcake(c) for c in cupcakes]
 
     return jsonify(cupcakes=serialized)
+
+
 @app.route('/api/cupcakes/<int:cupcake_id>')
 def show_cupcake_detail(cupcake_id):
 
     cupcake_id = Cupcake.query.get(cupcake_id)
 
 
-
 @app.route('/api/cupcakes', methods=["POST"])
 def add_cupcake():
+
+    flavor = request.json["name"]
+    size = request.json["calories"]
+    rating = request.json["rating"]
+    img_url = request.json["img_url"]
+
+    new_cupcake = Cupcake(
+        flavor=flavor,
+        size=size,
+        rating=rating,
+        img_url=img_url)
+
+    db.session.add(new_cupcake)
+    db.session.commit()
+
+    serialized = serialize_cupcake(new_cupcake)
+
+    return (jsonify(cupcake=serialized), 201)

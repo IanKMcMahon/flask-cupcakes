@@ -18,22 +18,10 @@ class Cupcake(db.Model):
     """cupcakes"""
 
 
-__tablename__ = "cupcakes"
+__tablename__ = 'cupcakes'
 
-id = db.Column(
-    db.Integer,
-    primary_key=True)
-flavor = db.Column(
-    db.Text,
-    nullable=False)
-size = db.Column(
-    db.Text,
-    nullable=False)
-rating = db.Column(
-    db.Float,
-    nullable=False)
-img_url = db.Column(
-    db.Text,
-    nullable=False,
-    default=DEFAULT_IMG_URL
-)
+id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+flavor = db.Column(db.String, nullable=False)
+size = db.Column(db.String, nullable=False)
+rating = db.Column(db.Float, nullable=False)
+img_url = db.Column(db.String, nullable=False, default=DEFAULT_IMG_URL)

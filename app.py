@@ -36,7 +36,8 @@ def show_all_cupcakes():
 @app.route('/api/cupcakes/<int:cupcake_id>')
 def show_cupcake_detail(cupcake_id):
 
-    cupcake_id = Cupcake.query.get(cupcake_id)
+    cupcake = Cupcake.query.get_or_404(cupcake_id)
+    return jsonify(cupcake=cupcake.to_dict())
 
 
 @app.route('/api/cupcakes', methods=["POST"])

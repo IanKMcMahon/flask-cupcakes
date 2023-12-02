@@ -63,6 +63,14 @@ def add_cupcake():
 
 
 @app.route('/api/cupcakes/<int:cupcake_id>', methods=["PATCH"])
-def edit_cupcake():
+def edit_cupcake(cupcake_id):
+
+    data = request.json
+    cupcake = Cupcake.query.get_or_404(cupcake_id)
+
+    cupcake.flavor = data['flavor']
+    cupcake.rating = data['rating']
+    cupcake.size = data['size']
+    cupcake.img_url = data['img_url']
 
     cupcake_id = Cupcake.query.get(cupcake_id)

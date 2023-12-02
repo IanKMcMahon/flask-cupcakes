@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>Cupcakes</h1>
+        <div>
+            <ul>
+                {% for cupcake in cupcakes %}
+                <li data-id="{{cucake.id}}"></li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+</body>
+
+</html>

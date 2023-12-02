@@ -4,9 +4,10 @@ from flask import Flask, request, jsonify
 from models import db, connect_db, Cupcake
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///flask-cupcakes'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///cupcakes'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
+app.app_context().push()
 
 connect_db(app)
 
@@ -41,7 +42,7 @@ def show_cupcake_detail(cupcake_id):
 @app.route('/api/cupcakes', methods=["POST"])
 def add_cupcake():
 
-    flavor = request.json["name"]
+    flavor = request.json["flavor"]
     size = request.json["calories"]
     rating = request.json["rating"]
     img_url = request.json["img_url"]

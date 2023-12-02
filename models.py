@@ -23,19 +23,15 @@ __tablename__ = "cupcakes"
 id = db.Column(
     db.Integer,
     primary_key=True)
-
 flavor = db.Column(
     db.Text,
     nullable=False)
-
 size = db.Column(
     db.Text,
     nullable=False)
-
 rating = db.Column(
     db.Float,
     nullable=False)
-
 image_url = db.Column(
     db.Text,
     nullable=False,

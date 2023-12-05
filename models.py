@@ -16,11 +16,11 @@ class Cupcake(db.Model):
     flavor = db.Column(db.String, nullable=False)
     size = db.Column(db.String, nullable=False)
     rating = db.Column(db.Float, nullable=False)
-    img_url = db.Column(db.String, nullable=False, default=DEFAULT_IMG_URL)
+    image = db.Column(db.String, nullable=False, default=DEFAULT_IMG_URL)
 
 
 def connect_db(app):
     """Connect to database."""
 
     db.app = app
-    db.connect_all(app)
+    db.init_app(app)
